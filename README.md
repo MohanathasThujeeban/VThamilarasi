@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
+# Shahid Patel - Civil, Structural, Safety and Quality Engineering Portfolio
 
-## Project info
+A responsive engineering portfolio presenting **Shahid Patel's** professional projects, applied research, technical capabilities, education, standards experience, and career development.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+[View the live portfolio](https://shahidpatelportfolio.vercel.app)
 
-## How can I edit this code?
+## Purpose
 
-There are several ways of editing your application.
+The portfolio brings Shahid's multidisciplinary engineering work into one structured, evidence-based site. It connects civil and structural engineering with construction quality, safety and risk engineering, regulatory compliance, and applied research.
 
-**Use Lovable**
+This repository belongs to Shahid's engineering profile and remains separate from Sajeda Patel's software-engineering portfolio.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Portfolio goals
 
-Changes made via Lovable will be committed automatically to this repo.
+- Present professional and academic work through detailed project case studies.
+- Show the relationship between design, construction, quality, safety, risk, and compliance.
+- Make technical experience easy for employers, collaborators, and professional reviewers to evaluate.
+- Provide a maintainable platform that can grow with new projects, publications, credentials, and recommendations.
 
-**Use your preferred IDE**
+## Implemented experience
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **19 project records** spanning institutional, healthcare, industrial, residential, community, oil and gas, environmental, reliability, and research work.
+- Project detail views covering scope, role, methods, tools, codes, safety considerations, and outcomes.
+- Dedicated sections for expertise, education, services, standards, honors, publications, recommendations, clients, and technical tools.
+- Responsive project filtering and navigation.
+- Professional and personal About sections with image and video content.
+- Branded metadata, social-preview image, responsive styling, and Vercel deployment.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Selected subject areas
 
-Follow these steps:
+- Reinforced-concrete buildings and foundations
+- Structural coordination and construction supervision
+- QA/QC, inspections, and material testing
+- Construction and process safety
+- Risk assessment, reliability, and fault detection
+- Environmental impact and sustainable engineering
+- Canadian and international codes and standards
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Technology stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+`React 18` `TypeScript` `Vite` `Tailwind CSS` `shadcn/ui` `Radix UI` `React Router` `Vitest`
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Project structure
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```text
+src/
+├── components/       # Portfolio sections and reusable interface components
+├── data/             # Project, asset, and tools datasets
+├── pages/            # Main and About pages
+├── assets/           # Professional, project, and personal media
+├── hooks/            # Reusable React hooks
+├── lib/              # Shared utilities
+└── test/             # Test setup and examples
+```
+
+## Getting started
+
+```bash
+git clone https://github.com/sajeda1311/Civil-Engineer-Portfolio.git
+cd Civil-Engineer-Portfolio
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Additional commands:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+npm run preview
+npm run lint
+npm run test
+```
 
-**Use GitHub Codespaces**
+## Accomplishments
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Replaced the original generated-project placeholder with a fully developed engineering portfolio.
+- Structured a large body of engineering evidence into reusable, data-driven case studies.
+- Combined project depth with a polished, responsive experience suitable for professional review.
+- Deployed the portfolio as a public site through Vercel.
 
-## What technologies are used for this project?
+## Next goals
 
-This project is built with:
+- Expand test coverage beyond the current example test.
+- Add performance and accessibility checks to the deployment workflow.
+- Optimize large media assets for faster loading.
+- Add project-specific downloadable documents where public sharing permits.
+- Keep project outcomes, credentials, and professional status current.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Portfolio owner
 
-## How can I deploy this project?
+**Shahid Patel** - Civil, Structural, Safety and Quality Engineering
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

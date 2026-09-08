@@ -20,7 +20,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "Austville",
-    name: "Apartment Building in Austville",
+    name: "Apartment Building - Austville",
     type: "Residential",
     category: "professional",
     role: "Assistant Civil Engineer",

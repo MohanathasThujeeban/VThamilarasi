@@ -30,7 +30,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-sm mb-6">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs tracking-widest text-primary uppercase">
-                MASc · P.Eng. Candidate (PEGNL)
+                NDT in Civil Engineering Technology 
               </span>
             </div>
 

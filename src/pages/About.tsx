@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 /* ----- Personal photos (bundled) ----- */
 import heroSunset from "@/assets/sunset-ocean-hero.jpg";
-import headshot from "@/assets/headshot.png";
+import headshot from "@/assets/IMG_9519.jpeg";
 import oceanBg from "@/assets/about/img_2721.jpeg";
 
 const PH = {
@@ -422,7 +422,7 @@ function QuoteSection() {
           </blockquote>
           <div className="mt-8 inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground">
             <span className="h-px w-10 bg-primary" />
-            V.Thamilarasi 
+            V.Thamilarasi
             <span className="h-px w-10 bg-primary" />
           </div>
         </ScrollReveal>

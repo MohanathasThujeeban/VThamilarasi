@@ -95,9 +95,9 @@ const values = [
 
 export default function About() {
   useEffect(() => {
-    document.title = "About — Shahid Patel | Beyond Engineering";
+    document.title = "About — V.Thamilarasi | Beyond Engineering";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Beyond engineering — the person, passions, and curiosity of Shahid Patel: photography, music, travel, ocean, and a love for learning.");
+    if (meta) meta.setAttribute("content", "Beyond engineering — the person, passions, and curiosity of V.Thamilarasi : photography, music, travel, ocean, and a love for learning.");
   }, []);
 
   return (
@@ -121,7 +121,7 @@ export default function About() {
 function Hero() {
   return (
     <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
-      <img src={PH.hero} alt="Shahid — beyond engineering" draggable={false} onContextMenu={(e) => e.preventDefault()} className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none" />
+      <img src={PH.hero} alt="Thamilarasi — beyond engineering" draggable={false} onContextMenu={(e) => e.preventDefault()} className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
       <div className="absolute inset-0 bg-grid opacity-[0.08]" />
 
@@ -159,16 +159,28 @@ function Hero() {
 /* ---------------- SECTION 2: WHO I AM ---------------- */
 function WhoIAm() {
   const paragraphs = [
-    <>Honestly, engineering has been in the background of my life for as long as I can remember. As a kid, I was the type who would stare at buildings, bridges, and construction sites and wonder, <em className="text-foreground/90">“How did they actually build that?”</em> Somewhere along the way, that curiosity turned into a passion, and before I knew it, I was studying civil engineering.</>,
-    <>What I love most about engineering is getting to see <span className="text-primary">ideas become reality</span>. There’s something really satisfying about watching a project go from a concept on paper to something tangible that makes a difference in people’s lives.</>,
-    <>But there’s definitely more to me than engineering.</>,
-    <>When I’m not thinking about structures and designs, I’m usually exploring one of my many hobbies. I’ve always enjoyed <span className="text-primary">drawing portraits</span>, I can spend hours trying to capture someone’s expression or the little details that make them unique.</>,
-    <>Lately, I’ve been teaching myself <span className="text-primary">guitar</span>. It’s a good reminder that nobody starts out great at something, you just keep practicing and get a little better each day.</>,
-    <>I’m also really into <span className="text-primary">photography</span>. It has a way of making you notice things you’d normally walk right past.</>,
-    <><span className="text-primary">Travelling</span> is another thing I absolutely love. Some of my favourite moments are actually the simple ones, sitting by a window during a long trip, listening to music, watching the scenery go by.</>,
-    <>Living in Newfoundland has made me appreciate <span className="text-primary">the ocean</span> in a way I never expected. Coastal drives, boat trips, anything that gets me near the water, it feels both calming and adventurous at once.</>,
-    <>Whenever I need a break, I usually head outdoors for a <span className="text-primary">hike</span> or pick up a <span className="text-primary">good book</span>. Hiking helps me disconnect; reading lets me explore new ideas and perspectives.</>,
-    <>At the end of the day, it all comes back to the same thing: <span className="text-primary font-medium">curiosity</span>. I genuinely enjoy learning, exploring, and growing, and I think that’s what keeps life interesting.</>,
+    <>I'm <span className="text-primary">Thamilarasi</span>, a motivated and curious student with a strong interest in learning, developing new skills, and exploring new opportunities.</>,
+    <>I believe that <span className="text-primary">education</span> is not only about gaining knowledge, but also about applying it to real-world situations and learning from every experience.</>,
+    <>Throughout my academic journey, I’ve developed an interest in <span className="text-primary">problem-solving</span>, understanding how things work, and finding practical ways to turn ideas into meaningful results.</>,
+    <>I enjoy taking on <span className="text-primary">new challenges</span> because they give me opportunities to learn, improve my skills, and grow both personally and academically.</>,
+    <>
+      Beyond academics, I value <span className="text-primary">creativity, teamwork, and continuous learning</span>. I believe that working with others and sharing ideas can lead to better results.
+    </>,
+    <>
+      I’m always interested in <span className="text-primary">learning new concepts</span> and exploring different areas that can help me expand my knowledge and abilities.
+    </>,
+    <>
+      I believe that every experience, whether it is a success or a challenge, provides an opportunity to <span className="text-primary">learn something valuable</span>.
+    </>,
+    <>
+      As a student, my goal is to continuously develop my knowledge, strengthen my skills, and prepare myself for <span className="text-primary">future opportunities</span>.
+    </>,
+    <>
+      I’m always open to new experiences and opportunities that allow me to <span className="text-primary">learn, collaborate, and contribute</span> in a meaningful way.
+    </>,
+    <>
+      At the end of the day, it all comes back to <span className="text-primary font-medium">continuous growth</span>. I believe in staying curious, learning consistently, and becoming a better version of myself with every new experience.
+    </>,
   ];
 
   return (
@@ -181,13 +193,13 @@ function WhoIAm() {
               <div className="absolute -inset-3 border border-primary/40" />
               <img
                 src={PH.portrait}
-                alt="Shahid Patel portrait"
+                alt="Thamilarasi portrait"
                 draggable={false}
                 onContextMenu={(e) => e.preventDefault()}
                 className="relative w-full h-auto object-contain pointer-events-none select-none grayscale-[15%]"
               />
               <div className="mt-4 font-mono text-[11px] tracking-[0.25em] text-muted-foreground uppercase">
-                Shahid Patel, In Pursuit of Possibility
+                V.Thamilarasi, In Pursuit of Possibility
               </div>
             </div>
           </ScrollReveal>
@@ -197,7 +209,7 @@ function WhoIAm() {
             <ScrollReveal>
               <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase">Who I Am</p>
               <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mt-3">
-                Hey, I’m <span className="italic text-primary">Shahid</span>.
+                Hey, I’m <span className="italic text-primary">Thamilarasi</span>.
               </h2>
             </ScrollReveal>
             <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/80">
@@ -442,7 +454,7 @@ function QuoteSection() {
           </blockquote>
           <div className="mt-8 inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.3em] uppercase text-muted-foreground">
             <span className="h-px w-10 bg-primary" />
-            Shahid Patel
+            V.Thamilarasi 
             <span className="h-px w-10 bg-primary" />
           </div>
         </ScrollReveal>

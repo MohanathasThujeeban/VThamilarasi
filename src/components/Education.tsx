@@ -3,41 +3,19 @@ import { GraduationCap } from "lucide-react";
 
 const degrees = [
   {
-    degree: "MASc",
-    field: "Safety & Risk Engineering",
-    institution: "Memorial University of Newfoundland",
-    period: "2023 – 2025",
-    focus: [
-      "Reliability analysis",
-      "Quantitative Risk Assessment",
-      "System safety",
-      "Safety Instrumented Systems",
-      "NBCC/CSA codes",
-    ],
-  },
-  {
-    degree: "B.Eng.",
+    degree: "National Diploma in Technology",
     field: "Civil Engineering",
-    institution: "Gujarat Technological University",
-    period: "2014 – 2017",
-    note: "WES Verified",
+    institution: "Institute of Technology, University of Moratuwa",
+    period: "2023 – 2026",
     focus: [
-      "Structural systems",
-      "Construction management",
-      "Geotechnical engineering",
-      "Transportation engineering",
-    ],
-  },
-  {
-    degree: "Diploma",
-    field: "Civil Engineering Technology",
-    institution: "Gujarat Technological University",
-    period: "2011 – 2014",
-    focus: [
+      "Structural Engineering",
+      "Construction Technology",
+      "Geotechnical Engineering",
+      "Transportation Engineering",
       "Surveying",
-      "Construction materials",
-      "Structural drafting",
-      "Site engineering",
+      "Quantity Surveying",
+      "Construction Management",
+      "Water & Environmental Engineering"
     ],
   },
 ];
@@ -70,11 +48,7 @@ export function Education() {
                   <span className="font-mono text-xl font-bold text-primary">
                     {deg.degree}
                   </span>
-                  {deg.note && (
-                    <span className="font-mono text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-sm border border-primary/20">
-                      {deg.note}
-                    </span>
-                  )}
+
                 </div>
                 <p className="text-sm font-medium text-foreground mb-1">
                   {deg.field}

@@ -87,7 +87,7 @@ export function Hero() {
               <div className="w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
                 <img
                   src={headshot}
-                  alt="Shahid Patel — Civil, Structural, Safety & Quality Engineer"
+                  alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
                   className="w-full h-full object-cover object-top"
                 />
               </div>

@@ -22,7 +22,7 @@ export function Footer({ hideCTA = false }: { hideCTA?: boolean } = {}) {
               technical consultation?
             </h2>
             <div className="mt-8">
-              <a href="mailto:shahidp017@gmail.com">
+              <a href="mailto:vmoorthy190@gmail.com">
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 py-3.5 h-auto text-sm font-semibold tracking-wide">
                   Start a Conversation
                 </Button>
@@ -39,14 +39,14 @@ export function Footer({ hideCTA = false }: { hideCTA?: boolean } = {}) {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <a
-                href="mailto:shahidp017@gmail.com"
+                href="mailto:vmoorthy190@gmail.com"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                shahidp017@gmail.com
+                vmoorthy190@gmail.com
               </a>
               <a
-                href="https://linkedin.com/in/shahid-h-patel"
+                href="https://www.linkedin.com/in/thamilarasi-vinayakamoorthi-75299828b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -56,11 +56,11 @@ export function Footer({ hideCTA = false }: { hideCTA?: boolean } = {}) {
               </a>
               <span className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                St. John&apos;s, NL, Canada
+                Colombo 06, Sri Lanka
               </span>
             </div>
             <p className="text-xs text-muted-foreground font-mono">
-              © {new Date().getFullYear()} Shahid Patel
+              © {new Date().getFullYear()} V.Thamilarasi
             </p>
           </div>
         </div>

@@ -6,9 +6,9 @@ interface BrandMarkProps {
 }
 
 /**
- * Shahid Patel brand mark.
+ * V. Thamilarasi brand mark.
  * Concept: I-beam column (top flange, web, bottom flange) with
- * "S" and "P" letterforms cantilevered off the central web —
+ * "V" and "T" letterforms cantilevered off the central web —
  * structural engineering motif rendered as a monogram.
  */
 export function BrandMark({ className, withWordmark = false }: BrandMarkProps) {
@@ -18,7 +18,7 @@ export function BrandMark({ className, withWordmark = false }: BrandMarkProps) {
         viewBox="0 0 64 64"
         xmlns="http://www.w3.org/2000/svg"
         className="h-7 w-7 shrink-0"
-        aria-label="Shahid Patel"
+        aria-label="V. Thamilarasi"
         role="img"
       >
         {/* Structural frame outline */}
@@ -45,23 +45,20 @@ export function BrandMark({ className, withWordmark = false }: BrandMarkProps) {
         {/* I-beam: bottom flange */}
         <rect x="10" y="50" width="44" height="5" fill="hsl(var(--primary))" />
 
-        {/* "S" letterform — left of the web, two cantilevered bars */}
-        <rect x="12" y="22" width="14" height="4" fill="hsl(var(--primary))" />
-        <rect x="12" y="22" width="4" height="9" fill="hsl(var(--primary))" />
-        <rect x="12" y="31" width="14" height="4" fill="hsl(var(--primary))" />
-        <rect x="22" y="31" width="4" height="9" fill="hsl(var(--primary))" />
-        <rect x="12" y="38" width="14" height="4" fill="hsl(var(--primary))" />
+        {/* "V" letterform — left of the web */}
+        <path
+          d="M 12 22 L 18 42 H 21 L 27 22 H 23.5 L 19.5 35 L 15.5 22 Z"
+          fill="hsl(var(--primary))"
+        />
 
-        {/* "P" letterform — right of the web */}
-        <rect x="38" y="22" width="4" height="20" fill="hsl(var(--primary))" />
-        <rect x="42" y="22" width="10" height="4" fill="hsl(var(--primary))" />
-        <rect x="48" y="22" width="4" height="10" fill="hsl(var(--primary))" />
-        <rect x="42" y="28" width="10" height="4" fill="hsl(var(--primary))" />
+        {/* "T" letterform — right of the web */}
+        <rect x="36" y="22" width="16" height="4" fill="hsl(var(--primary))" />
+        <rect x="42" y="26" width="4" height="16" fill="hsl(var(--primary))" />
       </svg>
 
       {withWordmark && (
         <span className="font-display text-base font-bold tracking-wide text-foreground uppercase leading-none">
-          Shahid <span className="text-primary">Patel</span>
+          V. <span className="text-primary">Thamilarasi</span>
         </span>
       )}
     </span>

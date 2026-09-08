@@ -57,7 +57,7 @@ export function Header() {
             else window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="flex items-center hover:opacity-90 transition-opacity"
-          aria-label="Shahid Patel — home"
+          aria-label="V.Thamilarasi — home"
         >
           <BrandMark withWordmark />
         </button>

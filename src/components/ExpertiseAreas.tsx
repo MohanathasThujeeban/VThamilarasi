@@ -1,58 +1,61 @@
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { Building2, Layers, ShieldAlert, ClipboardCheck, ChevronRight } from "lucide-react";
+import { Building2, Layers, Ruler, ShieldAlert, ClipboardCheck, ChevronRight } from "lucide-react";
 
 const areas = [
   {
     icon: Building2,
-    title: "Civil Engineering Systems",
+    title: "Civil Engineering & Construction",
     description:
-      "Planning, design, and delivery of civil infrastructure, from site investigation through construction closeout.",
+      "Practical knowledge of civil engineering principles, construction methods, and site activities from planning through project completion.",
     bullets: [
-      "Site investigation & geotechnical assessment",
-      "Foundation design (shallow, deep, mat)",
-      "Earthworks & grading",
-      "Drainage & utility coordination",
-      "Infrastructure lifecycle delivery",
+      "Site investigation & preparation",
+      "Construction methods & practices",
+      "Earthworks & site development",
+      "Drainage & basic infrastructure",
+      "Construction project coordination",
     ],
   },
+
   {
     icon: Layers,
     title: "Structural & RCC Systems",
     description:
-      "Load-path integrity, reinforcement detailing, and structural coordination across concrete, steel, and precast systems.",
+      "Understanding of reinforced concrete structures, structural components, construction detailing, and interpretation of engineering drawings.",
     bullets: [
-      "Reinforcement detailing (IS/CSA)",
-      "Structural load analysis",
-      "Beam, column, slab design",
-      "Precast & prestressed elements",
-      "Structural drawing review",
+      "Reinforced concrete construction",
+      "Beam, column & slab systems",
+      "Reinforcement detailing",
+      "Structural drawing interpretation",
+      "Concrete & formwork inspection",
     ],
   },
+
   {
-    icon: ShieldAlert,
-    title: "Safety, Risk & Reliability",
+    icon: Ruler,
+    title: "Surveying & Quantity Estimation",
     description:
-      "Systematic identification, quantification, and mitigation of engineering and process risks.",
+      "Application of surveying techniques and quantity measurement for construction planning and project execution.",
     bullets: [
-      "FMEA & HAZOP facilitation",
-      "Quantitative Risk Assessment (QRA)",
-      "Root Cause Failure Analysis (RCFA)",
-      "BowTieXP risk modeling",
-      "Emergency response planning",
+      "Land surveying & leveling",
+      "Setting out & measurements",
+      "Quantity take-offs",
+      "BOQ preparation",
+      "Material estimation",
     ],
   },
+
   {
     icon: ClipboardCheck,
-    title: "Quality, Inspection & Compliance",
+    title: "Quality, Safety & Project Management",
     description:
-      "QA/QC systems, material verification, and regulatory alignment ensuring construction meets specification.",
+      "Supporting construction quality, site safety, documentation, and project coordination in accordance with applicable Sri Lankan practices and standards.",
     bullets: [
-      "QA/QC system implementation",
-      "Non-destructive testing (NDT)",
-      "Material testing & certification",
-      "Regulatory audit preparation",
-      "ISO framework alignment",
+      "Construction QA/QC",
+      "Material & work inspections",
+      "Site safety practices",
+      "Progress monitoring & documentation",
+      "CIDA specifications & SLS standards",
     ],
   },
 ];
@@ -85,40 +88,35 @@ export function ExpertiseAreas() {
                 <button
                   key={area.title}
                   onClick={() => setActiveIndex(i)}
-                  className={`flex items-center gap-4 p-4 rounded-sm text-left transition-all border ${
-                    i === activeIndex
+                  className={`flex items-center gap-4 p-4 rounded-sm text-left transition-all border ${i === activeIndex
                       ? "glass-strong border-primary/50 shadow-lg shadow-primary/5"
                       : "border-transparent hover:glass hover:border-border/50"
-                  }`}
+                    }`}
                 >
                   <div
-                    className={`w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 transition-colors ${
-                      i === activeIndex
+                    className={`w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0 transition-colors ${i === activeIndex
                         ? "bg-primary/20"
                         : "bg-muted"
-                    }`}
+                      }`}
                   >
                     <area.icon
-                      className={`h-5 w-5 transition-colors ${
-                        i === activeIndex ? "text-primary" : "text-muted-foreground"
-                      }`}
+                      className={`h-5 w-5 transition-colors ${i === activeIndex ? "text-primary" : "text-muted-foreground"
+                        }`}
                     />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p
-                      className={`font-semibold text-sm transition-colors ${
-                        i === activeIndex ? "text-foreground" : "text-muted-foreground"
-                      }`}
+                      className={`font-semibold text-sm transition-colors ${i === activeIndex ? "text-foreground" : "text-muted-foreground"
+                        }`}
                     >
                       {area.title}
                     </p>
                   </div>
                   <ChevronRight
-                    className={`h-4 w-4 flex-shrink-0 transition-all ${
-                      i === activeIndex
+                    className={`h-4 w-4 flex-shrink-0 transition-all ${i === activeIndex
                         ? "text-primary opacity-100"
                         : "text-muted-foreground/30 opacity-0"
-                    }`}
+                      }`}
                   />
                 </button>
               ))}

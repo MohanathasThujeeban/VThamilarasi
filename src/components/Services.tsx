@@ -11,45 +11,50 @@ import {
 const services = [
   {
     icon: Ruler,
-    title: "Structural & Constructability Review",
-    problem: "Designs that miss buildability constraints lead to costly rework.",
-    value: "Independent review of structural drawings, specifications, and construction sequences to flag coordination gaps before they reach site.",
-    deliverables: "Review report, markup set, risk register",
+    title: "Structural Drawing & Design Support",
+    problem: "Accurate structural drawings are essential for safe and efficient construction.",
+    value: "Support in preparing, reviewing, and interpreting structural drawings and basic engineering details.",
+    deliverables: "Structural drawings, design details, drawing markups",
   },
-  {
-    icon: ShieldAlert,
-    title: "Safety & Risk Assessment",
-    problem: "Unidentified process or structural hazards create liability and regulatory exposure.",
-    value: "Systematic FMEA, HAZOP, and QRA to quantify risks, define barriers, and establish mitigation hierarchies aligned with regulatory expectations.",
-    deliverables: "Risk matrix, BowTie diagrams, ALARP justification",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Quality Audits & Compliance Review",
-    problem: "Non-conformances discovered late delay commissioning and erode stakeholder trust.",
-    value: "Structured QA/QC audits against project specifications, codes, and ISO frameworks — with traceable non-conformance tracking.",
-    deliverables: "Audit report, NCR log, corrective action plan",
-  },
+
   {
     icon: HardHat,
-    title: "Construction Technical Support",
-    problem: "Field teams need responsive engineering support for RFIs, change orders, and method statements.",
-    value: "On-call or embedded technical support during construction — bridging design intent and field execution.",
-    deliverables: "RFI responses, method statements, site directives",
+    title: "Construction Site Support",
+    problem: "Construction projects require proper technical coordination and site supervision.",
+    value: "Technical support for site activities, construction methods, material usage, and coordination with project teams.",
+    deliverables: "Site reports, work inspections, technical recommendations",
   },
+
+  {
+    icon: ClipboardCheck,
+    title: "Quality Control & Inspection",
+    problem: "Poor-quality construction can lead to defects, delays, and additional costs.",
+    value: "Inspection and monitoring of construction activities to ensure work follows drawings, specifications, and quality requirements.",
+    deliverables: "Inspection reports, quality checklists, NCR records",
+  },
+
   {
     icon: FileText,
-    title: "Engineering Documentation & Review",
-    problem: "Incomplete or inconsistent documentation creates audit failures and knowledge loss.",
-    value: "Preparation and review of engineering submittals, calculations, specifications, and as-built documentation packages.",
-    deliverables: "Calculation sets, specification reviews, document registers",
+    title: "Quantity Estimation & BOQ Support",
+    problem: "Inaccurate quantities can result in material waste and budget overruns.",
+    value: "Quantity take-offs, material estimation, and support in preparing Bills of Quantities for construction projects.",
+    deliverables: "Quantity take-offs, BOQ, material estimates",
   },
+
+  {
+    icon: Ruler,
+    title: "Land Surveying & Setting Out",
+    problem: "Incorrect measurements and setting out can affect the accuracy of construction work.",
+    value: "Support with surveying, leveling, measurements, and setting out for construction activities.",
+    deliverables: "Survey records, level reports, setting-out data",
+  },
+
   {
     icon: Settings,
-    title: "Asset Reliability & Lifecycle Support",
-    problem: "Aging assets without reliability frameworks face unplanned failures and escalating costs.",
-    value: "Reliability-centered maintenance planning, failure analysis, and lifecycle cost modeling for infrastructure and industrial assets.",
-    deliverables: "RCM plan, failure analysis report, lifecycle cost model",
+    title: "Project Planning & Documentation",
+    problem: "Poor planning and documentation can cause delays and coordination issues.",
+    value: "Support with construction planning, progress tracking, technical documentation, and project coordination.",
+    deliverables: "Progress reports, schedules, site documentation",
   },
 ];
 

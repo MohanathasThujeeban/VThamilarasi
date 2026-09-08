@@ -1,10 +1,9 @@
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 const clients = [
-  "Crystal Construction (Government Licensed)",
-  "Memorial University of Newfoundland",
-  "PEGNL — Professional Engineers & Geoscientists NL",
-  "WES — World Education Services",
+  "Institute of Technology, University of Moratuwa (ITUM)",
+  "JAG Group (Pvt) Ltd",
+  "JPKL Tower",
 ];
 
 export function Clients() {

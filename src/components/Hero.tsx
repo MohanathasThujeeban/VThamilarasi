@@ -70,9 +70,9 @@ export function Hero() {
             {/* Stats bar */}
             <div className="flex flex-wrap gap-6 sm:gap-8 mt-14 pt-8 border-t border-border/50">
               {[
-                { value: "14+", label: "Projects" },
-                { value: "6+", label: "Sectors" },
-                { value: "3", label: "Degrees" },
+                { value: "1", label: "Projects" },
+                { value: "2", label: "Sectors" },
+                { value: "1", label: "Degrees" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl sm:text-3xl font-bold text-primary font-mono">{stat.value}</p>

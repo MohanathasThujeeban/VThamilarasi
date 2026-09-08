@@ -8,35 +8,8 @@ import { Button } from "@/components/ui/button";
 
 /* ----- Personal photos (bundled) ----- */
 import heroSunset from "@/assets/sunset-ocean-hero.jpg";
-import sunsetCoast from "@/assets/about/1000023356.jpg";
 import portraitGrad from "@/assets/IMG_9519.jpeg";
 import oceanBg from "@/assets/about/img_2721.jpeg";
-
-/* Videos exceed repo size limit, served from Lovable CDN (absolute URL) */
-const momentVideo = "https://aac6054a-4a8a-47b2-91c1-4ced62c8c127.lovableproject.com/__l5e/assets-v1/5863ef40-dbc2-4f09-926f-7bd6fb032111/moment-video.mp4";
-const guitarVideo = "https://aac6054a-4a8a-47b2-91c1-4ced62c8c127.lovableproject.com/__l5e/assets-v1/109fc39c-0986-48a6-9233-643d83f8b3ad/guitar-play-new.mov";
-
-import imgFerry from "@/assets/about/1000022865.jpg";
-import imgTrail from "@/assets/about/1000022888.jpg";
-import imgBoardwalk from "@/assets/about/1000022725.jpg";
-import imgWhiteHouse from "@/assets/about/1000023357.jpg";
-import imgPier from "@/assets/about/1000023359.jpg";
-import imgStream from "@/assets/about/1000023361.jpg";
-import imgRiver from "@/assets/about/1000022550.jpg";
-import imgBoatRide from "@/assets/about/img_0564.jpeg";
-import imgHarbor from "@/assets/about/img_0620.jpeg";
-import imgCod from "@/assets/about/img_2752.jpeg";
-import imgGuitarWalk from "@/assets/about/img_3578.jpeg";
-import imgSketchRonaldo from "@/assets/about/img_3629.jpg";
-import imgSketchMessi from "@/assets/about/img_3630.jpg";
-import imgSketchHrithik from "@/assets/about/img_3631.jpg";
-import imgSketchSigned from "@/assets/about/img_3633.jpg";
-import imgSketchIron from "@/assets/about/img_3634.jpg";
-import imgCoastRail from "@/assets/about/img_3638.jpg";
-import imgGuitarPose from "@/assets/about/img_5154.jpg";
-import imgLakeDock from "@/assets/about/img_9206.jpeg";
-import imgSketchRonaldo2 from "@/assets/about/img_3628.jpg";
-import imgGuitarPark from "@/assets/about/img_5154_new.jpg";
 
 const PH = {
   hero: heroSunset,
@@ -44,17 +17,22 @@ const PH = {
   ocean: oceanBg,
 };
 
-const moments = [
-  { emoji: "🎨", title: "Portrait Sketching", caption: "Capturing personality through pencil and paper — one of the sketches I've signed off on.", img: imgSketchSigned },
-  { emoji: "🎸", title: "Learning Guitar", caption: "Enjoying the process of learning something new, one chord at a time.", video: guitarVideo, withSound: true },
-  { emoji: "🎥", title: "Caught in Motion", caption: "A short clip from one of my favourite days — sometimes a still frame just isn't enough.", video: momentVideo, poster: imgBoatRide },
-  { emoji: "📸", title: "Photography", caption: "Finding beauty in the details — sky meeting sea from the ferry deck.", img: imgHarbor },
-  { emoji: "⛴️", title: "Newfoundland Ferries", caption: "Long crossings between coastlines — some of the most peaceful hours I know.", img: imgFerry },
-  { emoji: "🌊", title: "On the Water", caption: "Out on the boat off the Newfoundland coast — life vest on, mind quiet.", img: imgBoatRide },
-  { emoji: "🎣", title: "Cod Fishing", caption: "A perfect Newfoundland afternoon — first cod of the day.", img: imgCod },
-  { emoji: "🥾", title: "Trails of La Manche", caption: "Exploring the East Coast Trail one path at a time.", img: imgTrail },
-  { emoji: "🌅", title: "Coastal Reflection", caption: "Quiet moments by the cliffs — where the best ideas usually arrive.", img: sunsetCoast },
-];
+export interface Moment {
+  emoji?: string;
+  title: string;
+  caption: string;
+  img?: string;
+  video?: string;
+  poster?: string;
+  withSound?: boolean;
+}
+
+export interface MosaicItem {
+  src: string;
+  alt: string;
+}
+
+const moments: Moment[] = [];
 
 const passions = [
   { title: "Engineering", insight: "I've always been fascinated by how ideas become reality." },
@@ -68,23 +46,7 @@ const passions = [
   { title: "Continuous Learning", insight: "Curiosity is the one habit I refuse to outgrow." },
 ];
 
-const mosaic = [
-  { src: imgCoastRail, alt: "Coastal rail by the Atlantic" },
-  { src: imgSketchRonaldo, alt: "Portrait sketch — Ronaldo" },
-  { src: imgGuitarPark, alt: "Guitar in hand — park afternoon" },
-  { src: imgLakeDock, alt: "Lakeside boardwalk" },
-  { src: imgWhiteHouse, alt: "Newfoundland house at sunset" },
-  { src: imgSketchIron, alt: "Portrait sketch — character study" },
-  { src: imgSketchRonaldo2, alt: "Signed pencil portrait study" },
-  { src: imgRiver, alt: "Rapids through the spruce" },
-  { src: imgGuitarWalk, alt: "Walking with guitar — Bannerman Park" },
-  { src: imgSketchSigned, alt: "Signed portrait sketch" },
-  { src: imgPier, alt: "Wooden pier at dawn" },
-  { src: imgSketchMessi, alt: "Portrait sketch — Messi" },
-  { src: imgStream, alt: "Coastal stream at dusk" },
-  { src: imgSketchHrithik, alt: "Portrait sketch in progress" },
-  { src: imgBoardwalk, alt: "Boardwalk sunset" },
-];
+const mosaic: MosaicItem[] = [];
 
 const values = [
   { title: "Lifelong Learning", body: "Always exploring new ideas, skills, and perspectives." },
@@ -247,7 +209,7 @@ function LifeInMoments() {
   };
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || moments.length === 0) return;
     const el = trackRef.current;
     if (!el) return;
     const id = window.setInterval(() => {
@@ -277,33 +239,36 @@ function LifeInMoments() {
                 A collection of experiences, passions, and memories that shape who I am.
               </p>
             </div>
-            <div className="flex gap-2">
-              <button onClick={() => scroll(-1)} aria-label="Previous" className="w-12 h-12 border border-border hover:border-primary hover:text-primary transition-colors flex items-center justify-center">
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button onClick={() => scroll(1)} aria-label="Next" className="w-12 h-12 border border-border hover:border-primary hover:text-primary transition-colors flex items-center justify-center">
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div>
+            {moments.length > 0 && (
+              <div className="flex gap-2">
+                <button onClick={() => scroll(-1)} aria-label="Previous" className="w-12 h-12 border border-border hover:border-primary hover:text-primary transition-colors flex items-center justify-center">
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button onClick={() => scroll(1)} aria-label="Next" className="w-12 h-12 border border-border hover:border-primary hover:text-primary transition-colors flex items-center justify-center">
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            )}
           </div>
         </ScrollReveal>
       </div>
 
-      <div
-        ref={trackRef}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onTouchStart={() => setPaused(true)}
-        className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 lg:px-8 pb-6 [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
-      >
-        {moments.map((m, i) => (
-          <article
-            key={i}
+      {moments.length > 0 ? (
+        <div
+          ref={trackRef}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={() => setPaused(true)}
+          className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 lg:px-8 pb-6 [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
+        >
+          {moments.map((m, i) => (
+            <article
+              key={i}
               className="group relative flex-shrink-0 w-[78vw] sm:w-[52vw] md:w-[360px] lg:w-[400px] aspect-[3/4] snap-start overflow-hidden bg-muted"
-          >
+            >
               {"video" in m && m.video ? (
-              <video
-                src={m.video}
+                <video
+                  src={m.video}
                   poster={(m as any).poster}
                   autoPlay
                   muted={muted[i] !== false}
@@ -311,48 +276,49 @@ function LifeInMoments() {
                   playsInline
                   preload="metadata"
                   className="w-full h-full object-cover"
-              />
-            ) : (
-              <img
-                src={(m as any).img}
-                alt={m.title}
-                draggable={false}
-                onContextMenu={(e) => e.preventDefault()}
-                className="w-full h-full object-cover pointer-events-none select-none transition-transform duration-[1200ms] group-hover:scale-105"
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-              <div className="text-3xl mb-3">{m.emoji}</div>
-              <h3 className="font-display text-2xl md:text-3xl font-medium">{m.title}</h3>
-              <p className="mt-2 text-sm md:text-base text-foreground/75 max-w-sm">{m.caption}</p>
-            </div>
-            <span className="absolute top-5 left-5 font-mono text-[11px] tracking-[0.25em] text-primary">{String(i + 1).padStart(2, "0")}</span>
-            {"video" in m && m.video && (m as any).withSound && (
-              <button
-                onClick={() => toggleMute(i)}
-                aria-label={muted[i] !== false ? "Unmute video" : "Mute video"}
-                className="absolute top-5 right-5 flex items-center gap-1.5 px-2 py-1 bg-background/70 backdrop-blur-sm border border-primary/40 hover:bg-background/90 transition-colors"
-              >
-                {muted[i] !== false ? (
-                  <VolumeX className="h-3 w-3 text-primary" />
-                ) : (
-                  <Volume2 className="h-3 w-3 text-primary" />
-                )}
-                <span className="font-mono text-[10px] tracking-[0.25em] text-primary uppercase">
-                  {muted[i] !== false ? "Sound" : "On"}
+                />
+              ) : (
+                <img
+                  src={(m as any).img}
+                  alt={m.title}
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="w-full h-full object-cover pointer-events-none select-none transition-transform duration-[1200ms] group-hover:scale-105"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                <div className="text-3xl mb-3">{m.emoji}</div>
+                <h3 className="font-display text-2xl md:text-3xl font-medium">{m.title}</h3>
+                <p className="mt-2 text-sm md:text-base text-foreground/75 max-w-sm">{m.caption}</p>
+              </div>
+              <span className="absolute top-5 left-5 font-mono text-[11px] tracking-[0.25em] text-primary">{String(i + 1).padStart(2, "0")}</span>
+              {"video" in m && m.video && (m as any).withSound && (
+                <button
+                  onClick={() => toggleMute(i)}
+                  aria-label={muted[i] !== false ? "Unmute video" : "Mute video"}
+                  className="absolute top-5 right-5 flex items-center gap-1.5 px-2 py-1 bg-background/70 backdrop-blur-sm border border-primary/40 hover:bg-background/90 transition-colors"
+                >
+                  {muted[i] !== false ? (
+                    <VolumeX className="h-3 w-3 text-primary" />
+                  ) : (
+                    <Volume2 className="h-3 w-3 text-primary" />
+                  )}
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-primary uppercase">
+                    {muted[i] !== false ? "Sound" : "On"}
+                  </span>
+                </button>
+              )}
+              {"video" in m && m.video && !(m as any).withSound && (
+                <span className="absolute top-5 right-5 flex items-center gap-1.5 px-2 py-1 bg-background/70 backdrop-blur-sm border border-primary/40">
+                  <Play className="h-3 w-3 text-primary fill-primary" />
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-primary uppercase">Video</span>
                 </span>
-              </button>
-            )}
-            {"video" in m && m.video && !(m as any).withSound && (
-              <span className="absolute top-5 right-5 flex items-center gap-1.5 px-2 py-1 bg-background/70 backdrop-blur-sm border border-primary/40">
-                <Play className="h-3 w-3 text-primary fill-primary" />
-                <span className="font-mono text-[10px] tracking-[0.25em] text-primary uppercase">Video</span>
-              </span>
-            )}
-          </article>
-        ))}
-      </div>
+              )}
+            </article>
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -417,23 +383,25 @@ function PhotoMosaic() {
           </div>
         </ScrollReveal>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
-          {mosaic.map((m, i) => (
-            <div
-              key={i}
-              className="group relative block w-full mb-3 md:mb-4 break-inside-avoid overflow-hidden bg-muted border border-border/40"
-            >
-              <img
-                src={m.src}
-                alt={m.alt}
-                loading="lazy"
-                draggable={false}
-                onContextMenu={(e) => e.preventDefault()}
-                className="w-full h-auto object-contain select-none pointer-events-none"
-              />
-            </div>
-          ))}
-        </div>
+        {mosaic.length > 0 ? (
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 [column-fill:_balance]">
+            {mosaic.map((m, i) => (
+              <div
+                key={i}
+                className="group relative block w-full mb-3 md:mb-4 break-inside-avoid overflow-hidden bg-muted border border-border/40"
+              >
+                <img
+                  src={m.src}
+                  alt={m.alt}
+                  loading="lazy"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="w-full h-auto object-contain select-none pointer-events-none"
+                />
+              </div>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );

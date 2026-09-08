@@ -5,17 +5,11 @@ import { Button } from "@/components/ui/button";
 
 const recommendations = [
   {
-    name: "Dr. Abbas Mamudu, Ph.D., P.Eng.",
+    name: "Dr. K. A. B. Weerasinghe",
     designation:
-      "Asst. Professor · Process Safety Expert · Asset Integrity & Reliability Engineer — Memorial University of Newfoundland",
-    meta: "Mentor · Sep 1, 2025",
-    text: "I had the distinct privilege of instructing Shahid Patel in several foundational courses, including Safety and Risk Engineering, and subsequently overseeing his capstone project at Memorial University. Throughout both academic coursework and project supervision, Shahid consistently exhibited exceptional technical expertise, analytical rigor, and professional maturity.\n\nHe demonstrated a strong command of advanced safety and risk engineering methodologies — quantitative risk assessment, fault tree analysis, and event tree modeling — adeptly bridging theoretical concepts with practical, real-world engineering challenges. His work was marked by meticulous attention to detail, robust problem-solving abilities, and a remarkable work ethic, placing him among the top performers I have encountered in my teaching career.\n\nBeyond his academic accomplishments, Shahid distinguished himself as a natural leader and collaborative team member. During the capstone project, he led his team with clarity and professionalism, communicating complex technical insights to both technical and non-technical audiences with ease.\n\nI confidently recommend Shahid for any role or opportunity that demands strong analytical skills, technical proficiency, and leadership capabilities. He is certain to be a valuable asset to any organization.",
-  },
-  {
-    name: "Dr. Syed Imtiaz",
-    designation: "Associate Professor, Process Engineering — Memorial University",
-    meta: "",
-    text: "Shahid demonstrates strong analytical rigor in safety and risk engineering. His work on quantitative risk assessment reflects systematic thinking and attention to regulatory frameworks.",
+      "Senior Lecturer · Civil & Structural Engineering · Institute of Technology, University of Moratuwa",
+    meta: "Academic Referee · ITUM",
+    text: "I have had the opportunity to teach and guide V. Thamilarasi during her studies in Civil Engineering at the Institute of Technology, University of Moratuwa. Throughout her academic work, she demonstrated a positive attitude towards learning, a willingness to take on new challenges, and a responsible approach to her studies.\n\nThrough modules including Strength of Materials, Surveying, Project Work, and Engineering Economics and Accounting, she developed a solid foundation in important areas of civil engineering. She showed particular interest in understanding practical applications and connecting academic knowledge with real-world engineering situations.\n\nHer project work also demonstrated her ability to approach tasks systematically, work with others, and communicate technical ideas effectively. She has shown good potential for continued development in civil engineering and construction-related fields.\n\nI am pleased to recommend V. Thamilarasi as a dedicated and motivated civil engineering student. I believe her willingness to learn, technical foundation, and commitment to professional development will support her well in future academic and career opportunities.",
   },
 ];
 

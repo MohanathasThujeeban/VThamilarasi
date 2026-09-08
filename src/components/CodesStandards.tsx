@@ -3,28 +3,57 @@ import { Shield, Award } from "lucide-react";
 
 const codeGroups = [
   {
-    region: "Canadian",
-    codes: ["NBCC 2020", "CSA A23.3", "CSA S16", "CSA S6", "Provincial Building Codes"],
+    region: "Sri Lankan",
+    codes: [
+      "SLS Standards",
+      "CIDA Specifications",
+      "SCA Building Specifications",
+      "UDA Planning & Building Regulations",
+      "NBRO Guidelines",
+    ],
   },
+
   {
-    region: "Indian (Cross-Referenced)",
-    codes: ["IS 456", "IS 875", "IS 1893", "NBC India 2016"],
+    region: "Structural & Design",
+    codes: [
+      "SLS EN 1990 — Basis of Structural Design",
+      "SLS EN 1991 — Actions on Structures",
+      "SLS EN 1992 — Design of Concrete Structures",
+      "SLS EN 1993 — Design of Steel Structures",
+      "SLS EN 1997 — Geotechnical Design",
+    ],
   },
+
+  {
+    region: "Construction & Infrastructure",
+    codes: [
+      "CIDA/CE/107 — CESMM-SL",
+      "CIDA/SP/101 — Reinforced Concrete Piles",
+      "SCA/4 — Specifications for Building Works",
+      "SCA/5 — Roads & Bridges",
+      "SCA/3/2 — Water Supply, Sewerage & Stormwater",
+    ],
+  },
+
   {
     region: "International",
-    codes: ["ASTM", "ISO", "NFPA", "OSHA", "WHMIS", "PCI", "CPCI"],
+    codes: [
+      "ASTM",
+      "ISO",
+      "BS Standards",
+      "Eurocodes",
+    ],
   },
 ];
 
 const certifications = [
-  "Basic First Aid / CPR C / AED — St. John Ambulance",
-  "Confined Space Awareness — Canada Safety Training Centre",
-  "Fall Arrest Protection",
-  "WHMIS Certification",
-  "Asbestos Awareness",
-  "Respiratory Training",
-  "WES Verified Academic Credentials",
-  "P.Eng. Licensure — Application via PEGNL (AIP58273)",
+  "National Diploma in Technology (NDT) — Civil Engineering",
+  "IIESL Student Membership",
+  "IESL Membership Pathway",
+  "AutoCAD & Civil Engineering Drafting",
+  "Construction Safety & Quality Control",
+  "Quantity Estimation & BOQ Preparation",
+  "Project Planning & Management",
 ];
 
 export function CodesStandards() {

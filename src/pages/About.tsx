@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 
 /* ----- Personal photos (bundled) ----- */
 import heroSunset from "@/assets/sunset-ocean-hero.jpg";
-import portraitGrad from "@/assets/IMG_9519.jpeg";
+import headshot from "@/assets/headshot.png";
 import oceanBg from "@/assets/about/img_2721.jpeg";
 
 const PH = {
   hero: heroSunset,
-  portrait: portraitGrad,
+  portrait: headshot,
   ocean: oceanBg,
 };
 

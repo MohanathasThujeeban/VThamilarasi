@@ -14,7 +14,7 @@ import gowtham from "@/assets/images/gowtham.jpeg";
 
 const recommendations = [
   {
-    name: "Dr. K. A. B. Weerasinghe - (PhD (Structural Engineering), (UoM/QUT),BSc (Hons) (Civil Engineering) (UoM),CTHE (Colombo)",
+    name: "Dr. K. A. B. Weerasinghe - (PhD (Structural Engineering ,BSc (Hons) (Civil Engineering) (UoM),CTHE (Colombo)",
     image: cab,
     designation:
       "Senior Lecturer · Civil & Structural Engineering · Institute of Technology, University of Moratuwa",
@@ -24,7 +24,7 @@ const recommendations = [
   },
 
   {
-    name: "Eng.Dinesh Liyanage - (BSc Civil Engineering)",
+    name: "Eng.Dinesh Liyanage - (A.ENG(ECSL) | AMIESL | BSc-Eng (Civil))",
     image: dinesh,
     designation: "Project Engineer · JAG Group (PVT) LTD",
     meta: "Professional Referee · Austville Residential Project",

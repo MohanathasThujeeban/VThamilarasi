@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { BrandMark } from "@/components/BrandMark";
 
 const navItems = [
@@ -19,27 +23,126 @@ const navItems = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Detect header scroll state
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
+  // Detect currently visible section
+  useEffect(() => {
+    // If we are on About page, no section should be active
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const sections = navItems
+      .filter((item) => !item.route)
+      .map((item) => document.querySelector(item.href))
+      .filter(Boolean);
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
+
+        if (visibleSections.length > 0) {
+          setActiveSection(
+            `#${visibleSections[0].target.id}`
+          );
+        }
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0.1, 0.25, 0.5],
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [location.pathname]);
+
+  // Handle navigation
   const scrollTo = (href: string) => {
     setMobileOpen(false);
+
+    // Route navigation
     if (href.startsWith("/")) {
       navigate(href);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
       return;
     }
+
+    // Section navigation from another page
     if (location.pathname !== "/") {
-      navigate("/" + href);
+      navigate("/");
+
+      // Wait for homepage to render
+      setTimeout(() => {
+        document
+          .querySelector(href)
+          ?.scrollIntoView({
+            behavior: "smooth",
+          });
+      }, 100);
+
       return;
     }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+
+    // Section navigation from homepage
+    document
+      .querySelector(href)
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  };
+
+  // Check if navigation item is active
+  const isActive = (item: (typeof navItems)[number]) => {
+    // About page
+    if (item.route) {
+      return location.pathname === item.href;
+    }
+
+    // Homepage sections
+    if (location.pathname === "/") {
+      return activeSection === item.href;
+    }
+
+    return false;
   };
 
   return (
@@ -51,10 +154,17 @@ export function Header() {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16">
+        {/* Logo */}
         <button
           onClick={() => {
-            if (location.pathname !== "/") navigate("/");
-            else window.scrollTo({ top: 0, behavior: "smooth" });
+            if (location.pathname !== "/") {
+              navigate("/");
+            } else {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }
           }}
           className="flex items-center hover:opacity-90 transition-opacity"
           aria-label="V.Thamilarasi — home"
@@ -62,19 +172,26 @@ export function Header() {
           <BrandMark withWordmark />
         </button>
 
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <button
               key={item.href}
               onClick={() => scrollTo(item.href)}
-              className="px-3 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-sm"
+              className={`px-3 py-1.5 text-sm rounded-sm transition-all duration-300 ${
+                isActive(item)
+                  ? "text-primary font-semibold bg-primary/10 shadow-[0_0_12px_hsl(var(--primary)/0.25)]"
+                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+              }`}
             >
               {item.label}
             </button>
           ))}
         </nav>
 
+        {/* Right Side */}
         <div className="flex items-center gap-3">
+          {/* Discuss a Project */}
           <Button
             onClick={() => scrollTo("#contact")}
             className="hidden sm:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm text-xs font-semibold tracking-wide"
@@ -82,23 +199,41 @@ export function Header() {
             Discuss a Project
           </Button>
 
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          {/* Mobile Menu */}
+          <Sheet
+            open={mobileOpen}
+            onOpenChange={setMobileOpen}
+          >
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden text-foreground">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden text-foreground"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 bg-card border-border">
+
+            <SheetContent
+              side="right"
+              className="w-72 bg-card border-border"
+            >
               <nav className="flex flex-col gap-2 mt-8">
                 {navItems.map((item) => (
                   <button
                     key={item.href}
                     onClick={() => scrollTo(item.href)}
-                    className="text-left text-base text-foreground hover:text-primary transition-colors py-3 border-b border-border/50"
+                    className={`text-left text-base transition-all duration-300 py-3 px-3 rounded-sm border-b border-border/50 ${
+                      isActive(item)
+                        ? "text-primary font-semibold bg-primary/10 shadow-[0_0_12px_hsl(var(--primary)/0.2)]"
+                        : "text-foreground hover:text-primary hover:bg-primary/5"
+                    }`}
                   >
                     {item.label}
                   </button>
                 ))}
+
+                {/* Mobile CTA */}
                 <Button
                   onClick={() => scrollTo("#contact")}
                   className="mt-4 bg-primary text-primary-foreground rounded-sm"

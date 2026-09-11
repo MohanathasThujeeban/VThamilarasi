@@ -24,7 +24,7 @@ const recommendations = [
   },
 
   {
-    name: "Mr. Dinesh Liyanage",
+    name: "Eng.Dinesh Liyanage (BSc Civil Engineering)",
     image: dinesh,
     designation: "Project Engineer · JAG Group (PVT) LTD",
     meta: "Professional Referee · Austville Residential Project",

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Briefcase, ChevronDown } from "lucide-react";
-import headshot from "@/assets/headshot.png";
+import headshot from "@/assets/headshot.gif";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export function Hero() {
@@ -88,7 +88,7 @@ export function Hero() {
               <img
                 src={headshot}
                 alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
-                className="w-full h-full object-cover object-top scale-[1.2] origin-center"
+                className="w-full h-full object-cover object-top scale-[1.0] origin-center"
               />
             </div>
             {/* Decorative elements */}

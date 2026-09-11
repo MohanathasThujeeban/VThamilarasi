@@ -88,7 +88,7 @@ export function Hero() {
               <img
                 src={headshot}
                 alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
-                className="w-full h-full object-cover object-top scale-[1.4] origin-center"
+                className="w-full h-full object-cover object-top scale-[1.2] origin-center"
               />
             </div>
             {/* Decorative elements */}

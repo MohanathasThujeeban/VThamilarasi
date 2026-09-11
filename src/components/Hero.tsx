@@ -9,7 +9,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-x-clip py-20 lg:py-0">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -24,8 +24,8 @@ export function Hero() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid opacity-30" />
 
-      <div className="section-container relative z-10 pt-24">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+      <div className="section-container relative z-10 pt-16 pb-12 lg:pt-24 lg:pb-0">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-sm mb-6">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -68,7 +68,7 @@ export function Hero() {
             </div>
 
             {/* Stats bar */}
-            <div className="flex flex-wrap gap-6 sm:gap-8 mt-14 pt-8 border-t border-border/50">
+            <div className="flex flex-wrap gap-6 sm:gap-8 mt-10 sm:mt-14 pt-8 border-t border-border/50">
               {[
                 { value: "1", label: "Projects" },
                 { value: "2", label: "Sectors" },
@@ -82,20 +82,20 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 flex justify-center lg:justify-end">
+          <div className="lg:col-span-2 flex justify-center lg:justify-end mt-4 lg:mt-0 pb-8 lg:pb-0">
             <div className="relative">
-                <div className="w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
-              <img
-                src={headshot}
-                alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
-                className="w-full h-full object-cover object-top scale-[1.0] origin-center"
-              />
+              <div className="w-56 h-68 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
+                <img
+                  src={headshot}
+                  alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
+                  className="w-full h-full object-cover object-top scale-[1.05] origin-center"
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -bottom-3 -right-3 w-56 sm:w-72 md:w-80 h-68 sm:h-80 md:h-[420px] border border-primary/30 rounded-sm -z-10" />
+              <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-primary/50" />
+              <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-primary/50" />
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -bottom-3 -right-3 w-60 sm:w-72 md:w-80 h-72 sm:h-80 md:h-[420px] border border-primary/30 rounded-sm -z-10" />
-            <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-primary/50" />
-            <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-primary/50" />
-          </div>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ export function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={() => scrollTo("#tools")}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+        className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
       >
         <span className="font-mono text-[10px] tracking-widest uppercase">Scroll</span>
         <ChevronDown className="h-4 w-4 animate-bounce" />

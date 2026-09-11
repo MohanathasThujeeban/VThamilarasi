@@ -9,7 +9,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-x-clip py-20 lg:py-0">
+    <section className="relative min-h-fit lg:min-h-screen flex items-center overflow-x-clip pt-20 pb-6 lg:py-0">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -24,7 +24,7 @@ export function Hero() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid opacity-30" />
 
-      <div className="section-container relative z-10 pt-16 pb-12 lg:pt-24 lg:pb-0">
+      <div className="section-container relative z-10 pt-4 pb-2 lg:pt-24 lg:pb-0">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-sm mb-6">
@@ -82,9 +82,9 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 flex justify-center lg:justify-end mt-4 lg:mt-0 pb-8 lg:pb-0">
+          <div className="lg:col-span-2 flex justify-center lg:justify-end mt-6 lg:mt-0 pb-2 lg:pb-0">
             <div className="relative">
-              <div className="w-56 h-68 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
+              <div className="w-72 h-90 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
                 <img
                   src={headshot}
                   alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"

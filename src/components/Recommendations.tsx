@@ -14,7 +14,7 @@ import gowtham from "@/assets/images/gowtham.jpeg";
 
 const recommendations = [
   {
-    name: "Dr. K. A. B. Weerasinghe - PhD (Structural Engineering ,BSc (Hons) (Civil Engineering) (UoM),CTHE (Colombo)",
+    name: "Dr. K. A. B. Weerasinghe - PhD (Structural Engineering | BSc (Hons) (Civil Engineering) (UoM) | CTHE (Colombo)",
     image: cab,
     designation:
       "Senior Lecturer · Civil & Structural Engineering · Institute of Technology, University of Moratuwa",

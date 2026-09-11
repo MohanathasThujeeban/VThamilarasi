@@ -84,18 +84,18 @@ export function Hero() {
 
           <div className="lg:col-span-2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
-                <img
-                  src={headshot}
-                  alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -bottom-3 -right-3 w-60 sm:w-72 md:w-80 h-72 sm:h-80 md:h-[420px] border border-primary/30 rounded-sm -z-10" />
-              <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-primary/50" />
-              <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-primary/50" />
+                <div className="w-60 h-72 sm:w-72 sm:h-80 md:w-80 md:h-[420px] overflow-hidden rounded-sm glass-strong">
+              <img
+                src={headshot}
+                alt="V. Thamilarasi — Civil, Structural, Safety & Quality Engineer"
+                className="w-full h-full object-cover object-top scale-[1.4] origin-center"
+              />
             </div>
+            {/* Decorative elements */}
+            <div className="absolute -bottom-3 -right-3 w-60 sm:w-72 md:w-80 h-72 sm:h-80 md:h-[420px] border border-primary/30 rounded-sm -z-10" />
+            <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-primary/50" />
+            <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-primary/50" />
+          </div>
           </div>
         </div>
       </div>

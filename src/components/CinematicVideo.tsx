@@ -12,6 +12,7 @@ export const CinematicVideo: React.FC = () => {
   const targetSeekRef = useRef<number>(0);
   const durationRef = useRef<number>(0);
   const isSeekingRef = useRef<boolean>(false);
+  const unlockedRef = useRef<boolean>(false);
 
   // Parallax refs
   const targetMouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -19,13 +20,39 @@ export const CinematicVideo: React.FC = () => {
   const mousePosPxRef = useRef<{ x: number; y: number }>({ x: 50, y: 50 });
 
   const [progressPercent, setProgressPercent] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
     video.muted = true;
     video.playsInline = true;
+
+    // Mobile media pipeline unlocker for iOS WebKit & Android Chrome
+    const unlockVideoPipeline = () => {
+      if (unlockedRef.current) return;
+      video.muted = true;
+      video.playsInline = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            video.pause();
+            unlockedRef.current = true;
+            updateDuration();
+          })
+          .catch(() => {
+            // Autoplay policy prevented immediate play, will unlock on first scroll/touch
+          });
+      }
+    };
 
     const updateDuration = () => {
       const dur = video.duration;
@@ -46,18 +73,12 @@ export const CinematicVideo: React.FC = () => {
       const target = currentSeekRef.current;
       const diff = Math.abs(videoRef.current.currentTime - target);
 
-      // Fine precision frame update threshold (>0.005s) for silky-smooth motion
+      // Fine precision frame update threshold (>0.005s)
       if (diff > 0.005) {
         isSeekingRef.current = true;
         try {
-          if (
-            "fastSeek" in videoRef.current &&
-            typeof (videoRef.current as any).fastSeek === "function"
-          ) {
-            (videoRef.current as any).fastSeek(target);
-          } else {
-            videoRef.current.currentTime = target;
-          }
+          // Direct currentTime assignment for universal mobile & desktop compatibility
+          videoRef.current.currentTime = target;
         } catch {
           isSeekingRef.current = false;
         }
@@ -73,6 +94,16 @@ export const CinematicVideo: React.FC = () => {
       isSeekingRef.current = true;
     };
 
+    // Unlock media pipeline on initial user touch or scroll (critical for mobile iOS)
+    const handleFirstUserGesture = () => {
+      unlockVideoPipeline();
+      window.removeEventListener("touchstart", handleFirstUserGesture);
+      window.removeEventListener("pointerdown", handleFirstUserGesture);
+    };
+
+    window.addEventListener("touchstart", handleFirstUserGesture, { passive: true });
+    window.addEventListener("pointerdown", handleFirstUserGesture, { passive: true });
+
     video.addEventListener("loadedmetadata", updateDuration);
     video.addEventListener("durationchange", updateDuration);
     video.addEventListener("canplay", updateDuration);
@@ -80,10 +111,15 @@ export const CinematicVideo: React.FC = () => {
     video.addEventListener("seeked", handleSeeked);
     video.addEventListener("seeking", handleSeeking);
 
+    unlockVideoPipeline();
     updateDuration();
 
     // Scroll progress handler
     const handleScroll = () => {
+      if (!unlockedRef.current) {
+        unlockVideoPipeline();
+      }
+
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const progress =
@@ -117,10 +153,10 @@ export const CinematicVideo: React.FC = () => {
     let animId: number;
 
     const loop = () => {
-      // 1. Ultra-Smooth Seek Interpolation (0.08 LERP factor for buttery frame transitions)
+      // 1. Smooth Seek Interpolation (0.10 LERP factor for responsive mobile/desktop scrubbing)
       const seekDiff = targetSeekRef.current - currentSeekRef.current;
       if (Math.abs(seekDiff) > 0.0001) {
-        currentSeekRef.current += seekDiff * 0.08;
+        currentSeekRef.current += seekDiff * 0.10;
         performSeek();
       }
 
@@ -134,10 +170,13 @@ export const CinematicVideo: React.FC = () => {
       const dy = currentMouseRef.current.y;
 
       if (containerRef.current) {
-        // Includes 35px translateY offset so subject head sits well clear of fixed header bar
-        containerRef.current.style.transform = `scale(1.08) translate3d(${
-          dx * -20
-        }px, ${dy * -20 + 35}px, 0) rotateX(${dy * -3}deg) rotateY(${dx * 3}deg)`;
+        const yOffset = isMobile ? 10 : 35;
+        const tiltX = isMobile ? 0 : dy * -3;
+        const tiltY = isMobile ? 0 : dx * 3;
+        const moveX = isMobile ? 0 : dx * -20;
+        const moveY = isMobile ? yOffset : dy * -20 + yOffset;
+
+        containerRef.current.style.transform = `scale(1.06) translate3d(${moveX}px, ${moveY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
       }
 
       // 3. Interactive Cursor Spotlight Glow
@@ -152,8 +191,11 @@ export const CinematicVideo: React.FC = () => {
 
     return () => {
       cancelAnimationFrame(animId);
+      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleFirstUserGesture);
+      window.removeEventListener("pointerdown", handleFirstUserGesture);
       video.removeEventListener("loadedmetadata", updateDuration);
       video.removeEventListener("durationchange", updateDuration);
       video.removeEventListener("canplay", updateDuration);
@@ -161,7 +203,7 @@ export const CinematicVideo: React.FC = () => {
       video.removeEventListener("seeked", handleSeeked);
       video.removeEventListener("seeking", handleSeeking);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
@@ -186,7 +228,12 @@ export const CinematicVideo: React.FC = () => {
             playsInline
             muted
             preload="auto"
-            className="w-full h-full object-cover object-[center_32%] brightness-[1.1] contrast-[1.08] opacity-95"
+            // @ts-ignore - WebKit attributes for legacy iOS Safari compatibility
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            className={`w-full h-full object-cover brightness-[1.1] contrast-[1.08] opacity-95 ${
+              isMobile ? "object-[center_20%]" : "object-[center_32%]"
+            }`}
           />
         </div>
 

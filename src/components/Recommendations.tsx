@@ -59,7 +59,7 @@ export function Recommendations() {
   const rec = recommendations[current];
 
   return (
-    <section className="section-padding bg-muted/30 relative">
+    <section className="section-padding bg-background/30 backdrop-blur-sm relative">
       <div className="absolute inset-0 bg-grid opacity-10" />
 
       <div className="section-container relative z-10">

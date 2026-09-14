@@ -8,7 +8,7 @@ const clients = [
 
 export function Clients() {
   return (
-    <section className="section-padding bg-background relative">
+    <section className="section-padding bg-background/40 backdrop-blur-sm relative">
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="section-container relative z-10">
         <ScrollReveal>

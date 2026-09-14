@@ -58,7 +58,7 @@ const certifications = [
 
 export function CodesStandards() {
   return (
-    <section id="codes" className="section-padding bg-muted/30 relative">
+    <section id="codes" className="section-padding bg-background/30 backdrop-blur-sm relative">
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="section-container relative z-10">
         <ScrollReveal>

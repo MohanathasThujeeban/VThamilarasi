@@ -11,20 +11,14 @@ import { Publications } from "@/components/Publications";
 import { Honors } from "@/components/Honors";
 import { Education } from "@/components/Education";
 import { Footer } from "@/components/Footer";
-import siteBg from "@/assets/site-bg.jpg";
+import { CinematicVideo } from "@/components/CinematicVideo";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Architectural background */}
-      <div className="fixed inset-0 z-0">
-        <img
-          src={siteBg}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-background/92" />
-      </div>
+      {/* 3D Cursor-Controlled & Scroll-Scrubbed Video Background Engine */}
+      <CinematicVideo />
+
 
       <div className="relative z-10">
         <Header />

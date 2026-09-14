@@ -22,7 +22,7 @@ const degrees = [
 
 export function Education() {
   return (
-    <section id="education" className="section-padding bg-background relative">
+    <section id="education" className="section-padding bg-background/40 backdrop-blur-sm relative">
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="section-container relative z-10">
         <ScrollReveal>

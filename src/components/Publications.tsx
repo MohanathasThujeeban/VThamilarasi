@@ -5,7 +5,7 @@ import { BookOpen } from "lucide-react";
 
 export function Publications() {
   return (
-    <section id="publications" className="section-padding bg-background relative">
+    <section id="publications" className="section-padding bg-background/40 backdrop-blur-sm relative">
       <div className="absolute inset-0 bg-grid opacity-10" />
       <div className="section-container relative z-10">
         <ScrollReveal>

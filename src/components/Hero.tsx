@@ -10,9 +10,14 @@ export function Hero() {
 
   return (
     <section className="relative min-h-fit lg:min-h-screen flex items-center overflow-x-clip pt-20 pb-6 lg:py-0">
-      {/* Semi-transparent background overlay allowing video engine to show through */}
+      {/* Background image */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/40" />
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
       </div>
 
@@ -25,7 +30,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-sm mb-6">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="font-mono text-xs tracking-widest text-primary uppercase">
-                NDT in Civil Engineering Technology 
+                NDT in Civil Engineering Technology
               </span>
             </div>
 

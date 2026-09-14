@@ -6,32 +6,40 @@ export function Footer({ hideCTA = false }: { hideCTA?: boolean } = {}) {
   return (
     <footer id="contact" className="relative overflow-hidden">
       {/* CTA Section */}
-      {!hideCTA && (
-      <div className="section-padding bg-card relative">
-        <div className="absolute inset-0 bg-grid opacity-10" />
-        <div className="section-container text-center relative z-10">
-          <ScrollReveal>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-sm mb-6">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="font-mono text-xs tracking-widest text-primary uppercase">
-                Let&apos;s Connect
-              </span>
+          <div className="section-padding relative">
+            <div className="absolute inset-0 bg-grid opacity-10" />
+
+            <div className="section-container relative z-10">
+              <ScrollReveal>
+                <div className="glass rounded-2xl px-6 py-12 md:px-12 md:py-16 text-center shadow-2xl">
+                  
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-sm mb-6">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+
+                    <span className="font-mono text-xs tracking-widest text-primary uppercase">
+                      Let&apos;s Connect
+                    </span>
+                  </div>
+
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl mx-auto text-foreground">
+                    Interested in engineering collaboration, project review, or
+                    technical consultation?
+                  </h2>
+
+                  <div className="mt-8">
+                    <a href="mailto:vmoorthy190@gmail.com">
+                      <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 py-3.5 h-auto text-sm font-semibold tracking-wide">
+                        Start a Conversation
+                      </Button>
+                    </a>
+                  </div>
+
+                </div>
+              </ScrollReveal>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl mx-auto text-foreground">
-              Interested in engineering collaboration, project review, or
-              technical consultation?
-            </h2>
-            <div className="mt-8">
-              <a href="mailto:vmoorthy190@gmail.com">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-8 py-3.5 h-auto text-sm font-semibold tracking-wide">
-                  Start a Conversation
-                </Button>
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </div>
-      )}
+          </div>
+```
+
 
       {/* Bottom bar */}
       <div className="bg-background border-t border-border/50">

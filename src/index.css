@@ -66,10 +66,10 @@
     @apply py-20 md:py-28;
   }
   .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    @apply bg-card/5 backdrop-blur-xl border border-border/10;
   }
   .glass-strong {
-    @apply bg-card/80 backdrop-blur-2xl border border-border/60;
+    @apply bg-card/5 backdrop-blur-2xl border border-border/15;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-yellow-300 to-primary;
